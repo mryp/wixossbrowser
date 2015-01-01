@@ -1,0 +1,51 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context="net.poringsoft.wixossbrowser.MainActivity" >
+<item android:id="@+id/action_edit_deck"
+        android:icon="@drawable/ic_action_edit"
+        android:title="@string/action_edit_deck"
+        app:showAsAction="ifRoom" />
+<item android:id="@+id/action_search"
+    android:icon="@drawable/ic_action_search"
+    android:title="@string/action_search"
+    app:showAsAction="ifRoom" />
+<item android:id="@+id/action_update_list"
+        android:icon="@drawable/ic_action_download"
+        android:title="@string/action_update_list"
+        app:showAsAction="ifRoom" />
+<item android:id="@+id/action_sort"
+    android:title="@string/action_sort"
+    app:showAsAction="never">
+    <menu>
+        <item android:id="@+id/action_sort_model"
+            android:title="@string/action_sort_model"
+            app:showAsAction="never" />
+        <item android:id="@+id/action_sort_name"
+            android:title="@string/action_sort_name"
+            app:showAsAction="never" />
+        <item android:id="@+id/action_sort_kana"
+            android:title="@string/action_sort_kana"
+            app:showAsAction="never" />
+        <item android:id="@+id/action_sort_kind_desc"
+            android:title="@string/action_sort_kind_desc"
+            app:showAsAction="never" />
+        <item android:id="@+id/action_sort_kind_asc"
+            android:title="@string/action_sort_kind_asc"
+            app:showAsAction="never" />
+        <item android:id="@+id/action_sort_limit"
+            android:title="@string/action_sort_limit"
+            app:showAsAction="never" />
+        <item android:id="@+id/action_sort_power"
+            android:title="@string/action_sort_power"
+            app:showAsAction="never" />
+    </menu>
+</item>
+<item android:id="@+id/action_share_official"
+    android:title="@string/action_share_official"
+    app:showAsAction="never" />
+<item android:id="@+id/action_settings"
+    android:title="@string/action_settings"
+    android:orderInCategory="100"
+    app:showAsAction="never" />
+</menu>

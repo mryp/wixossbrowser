@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp">
+    <!-- ListView用（idは定義済みのandroid:list）-->
+    <ListView android:id="@id/android:list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        android:layout_weight="1"
+        android:drawSelectorOnTop="false" />
+    <!-- アイテムが空の場合に使用するテキスト（idは定義済みのandroid:empty）-->
+    <TextView android:id="@id/android:empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:background="@color/main_background"
+        android:text="データ読み込み中..." />
+</LinearLayout>

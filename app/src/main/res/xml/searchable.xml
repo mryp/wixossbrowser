@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="@string/search_title"
+    android:hint="@string/search_hint"
+    android:searchMode="queryRewriteFromData"
+    android:imeOptions="actionSearch"
+    android:inputType="text"
+    android:searchSuggestAuthority="net.poringsoft.wixossbrowser.data.SearchSuggestionProvider"
+    android:searchSuggestSelection=" ? ">
+</searchable>
+
+<!-- android:voiceSearchMode="showVoiceSearchButton|launchRecognizer " <音声検索をON -->

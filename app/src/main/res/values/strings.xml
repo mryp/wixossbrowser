@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ウィクロイド</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- メニュー文字列 -->
+    <string name="action_settings">設定</string>
+    <string name="action_edit_deck">マイデッキ編集</string>
+    <string name="action_search">検索</string>
+    <string name="action_share_official">公式サイト</string>
+    <string name="action_share_wiki">Wiki</string>
+    <string name="action_update_list">データ取得</string>
+    <string name="action_update_all">すべて更新</string>
+    <string name="action_add">登録</string>
+    <string name="action_share">共有</string>
+    <string name="action_sort">並び替え</string>
+    <string name="action_sort_model">型番順</string>
+    <string name="action_sort_name">カード名順</string>
+    <string name="action_sort_kana">よみがな順</string>
+    <string name="action_sort_kind_desc">種別降順</string>
+    <string name="action_sort_kind_asc">種類昇順</string>
+    <string name="action_sort_limit">リミット順</string>
+    <string name="action_sort_power">パワー順</string>
+    <string name="action_new">追加</string>
+
+    <!-- メニュー文字列 -->
+    <string name="search_title">カード名検索</string>
+    <string name="search_hint">カード名またはよみがな</string>
+
+    <!-- URL文字列 -->
+    <string name="url_official_top">http://www.takaratomy.co.jp/products/wixoss/</string>
+    <string name="url_official_product_list">"http://www.takaratomy.co.jp/products/wixoss/card/product_list.php"</string>
+    <string name="url_poringsoft">http://www.poringsoft.net/?page_id=1250</string>
+</resources>

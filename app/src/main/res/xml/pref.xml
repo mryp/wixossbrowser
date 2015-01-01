@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="カード一覧画面">
+        <CheckBoxPreference
+            android:title="カード名の背景色"
+            android:summary="カード種別に合わてルリグ・アーツを白背景、スペル・シグニを黒背景にしたい場合はONにしてください。"
+            android:key="card_list_color_deck"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:title="画像領域の初期化処理追加"
+            android:summary="高速スクロール時に違う画像が表示されることがあるのが気になる場合はONにしてください"
+            android:key="card_list_async_del_image"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:title="カード枚数をナビに表示"
+            android:summary="マイデッキ以外の検索項目のナビゲーションメニューにカード枚数を表示する（反映するには再起動が必要）"
+            android:key="card_list_show_count"
+            android:defaultValue="false" />
+        <!--
+        <CheckBoxPreference
+            android:title="画面遷移をスタックする"
+            android:summary="ナビゲーションメニュー・検索時のカード一覧画面の遷移を保存し、バックキーで戻るときはひとつ前の画面に戻る"
+            android:key="card_list_stack_fragment"
+            android:defaultValue="false" />
+        -->
+        <CheckBoxPreference
+            android:title="マイデッキの並び替えを保持"
+            android:summary="マイデッキの並び替え設定をカテゴリ・検索の設定とは別に保持する"
+            android:key="card_list_sort_use_deck"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="カード詳細画面">
+        <CheckBoxPreference
+            android:title="検索時にWIXOSSを付与"
+            android:summary="共有ボタンを押したときの検索語にWIXOSSを先頭に付与して検索を行う"
+            android:key="card_info_share_add_wixoss"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="マイデッキ編集画面">
+        <CheckBoxPreference
+            android:title="共有情報にレベルを表示"
+            android:summary="デッキ共有時の表示内容にカードレベルを表示する（例：[Lv.2]）"
+            android:key="edit_deck_share_show_level"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:title="共有情報に枚数を表示"
+            android:summary="デッキ共有時の表示内容にカード枚数を表示する（例：[x4]）"
+            android:key="edit_deck_share_show_count"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:title="共有情報の枚数表示を最後尾に移動"
+            android:summary="デッキ共有時の表示内容にカード枚数を表示する場合は最後尾に表示する"
+            android:key="edit_deck_share_move_last"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="検索機能">
+        <CheckBoxPreference
+            android:title="カードテキスト・FAQも検索"
+            android:summary="カード名・よみがな検索のときカードテキスト・FAQの内容も検索する"
+            android:key="search_include_body_text"
+            android:defaultValue="false" />
+        <PreferenceScreen
+            android:title="検索履歴削除"
+            android:summary="検索履歴をすべて削除する"
+            android:key="privacy_del_search_history" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="バージョン情報">
+        <PreferenceScreen
+            android:title="version 1.0.0"
+            android:summary="Copyright (C) 2014 PORING SOFT"
+            android:key="version_info" />
+    </PreferenceCategory>
+</PreferenceScreen>

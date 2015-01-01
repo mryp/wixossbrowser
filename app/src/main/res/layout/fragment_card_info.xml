@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/card_info_side_space"
+        android:layout_marginRight="@dimen/card_info_side_space"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@color/main_background"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="New Text"
+        android:id="@+id/titleTextView" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/card_info_image_width"
+                    android:layout_height="@dimen/card_info_image_height"
+                    android:layout_margin="@dimen/card_info_side_space"
+                    android:padding="@dimen/card_info_side_space"
+                    android:background="#FF0000"
+                    android:id="@+id/cardImageView" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/card_info_side_space"
+                    android:layout_marginBottom="@dimen/card_info_side_space"
+                    android:layout_marginRight="@dimen/card_info_side_space"
+                    android:padding="@dimen/card_info_side_space"
+                    android:text="1\n2\n2\n2"
+                    android:background="@color/main_background"
+                    android:id="@+id/detailTextView" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/messageLayout"
+                >
+                <!-- 動的追加 -->
+            </LinearLayout>
+
+            <!-- FAQ -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_info_side_space"
+                android:layout_marginRight="@dimen/card_info_side_space"
+                android:layout_marginLeft="@dimen/card_info_side_space"
+                android:background="@color/main_background"
+                android:id="@+id/faqLayout"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="FAQ"
+                    android:id="@+id/fqaTitleTextView" />
+                <!-- 動的追加 -->
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
