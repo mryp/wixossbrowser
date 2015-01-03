@@ -4,10 +4,17 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +33,10 @@ import net.poringsoft.wixossbrowser.utils.PSDebug;
 import net.poringsoft.wixossbrowser.utils.PSUtils;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * カード表示詳細表示Fragment
@@ -36,6 +47,17 @@ public class CardInfoFragment extends Fragment {
     //---------------------------------------------------------------------
     private static final String ARG_SELECT_MODEL_NUMBER = "model_number";
 
+    /**
+     * メッセージ欄の検索キーとカラーリソースIDテーブル
+     */
+    private static final Map<String, Integer> MESSAGE_KEY_COLORID_TABLE = new HashMap<String, Integer>(){
+        { put("[常時能力]", R.color.ability_text_regular); }
+        { put("[常]", R.color.ability_text_regular); }
+        { put("[出現時能力]", R.color.ability_text_arrival); }
+        { put("[出]", R.color.ability_text_arrival); }
+        { put("[起動能力]", R.color.ability_text_starting); }
+        { put("[起]", R.color.ability_text_starting); }
+    };
 
     //フィールド
     //---------------------------------------------------------------------
@@ -236,8 +258,7 @@ public class CardInfoFragment extends Fragment {
     private void addMessageLayout(LayoutInflater inflater, LinearLayout addLayout, final String text) {
         final TextView messageTextView = (TextView)inflater.inflate(R.layout.card_info_message, null);
         if (messageTextView != null) {
-            //TODO: 指定した文字（たとえば[常時能力]など）の色を変化させるのは未実装
-            messageTextView.setText(text);
+            messageTextView.setText(getAbilitySpannableText(text));
             messageTextView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
@@ -253,6 +274,51 @@ public class CardInfoFragment extends Fragment {
                     , PSUtils.getPixcelFromDp(getActivity(), R.dimen.card_info_side_space)
                     , PSUtils.getPixcelFromDp(getActivity(), R.dimen.card_info_side_space));
             addLayout.addView(messageTextView, params);
+        }
+    }
+
+    /**
+     * 能力情報に色を付与して返す
+     * @param text メッセージ文字列
+     * @return 色情報付与した文字列
+     */
+    private SpannableString getAbilitySpannableText(String text) {
+        SpannableString spanText = SpannableString.valueOf(text);
+        for (String key : MESSAGE_KEY_COLORID_TABLE.keySet()) {
+            setSpanColorRegexMatch(spanText, key, getResources().getColor(MESSAGE_KEY_COLORID_TABLE.get(key)));
+        }
+        
+        return spanText;
+    }
+
+    /**
+     * 指定した文字列を検索しヒットした場合は対象の文字列に色を設定する(行頭検索版)
+     * @param spanText 色を設定する検索文字列
+     * @param searchText 検索文字列
+     * @param color ヒットした場合にセットする色
+     */
+    private void setSpanColorRegexMatch(SpannableString spanText, String searchText, int color) {
+        setSpanColorRegexMatch(spanText, searchText, color, true);
+    }
+
+    /**
+     * 指定した文字列を検索しヒットした場合は対象の文字列に色を設定する
+     * @param spanText 色を設定する検索文字列
+     * @param searchText 検索文字列
+     * @param color ヒットした場合にセットする色
+     * @param isLineHead 行頭を検索するかどうか
+     */
+    private void setSpanColorRegexMatch(SpannableString spanText, String searchText, int color, boolean isLineHead) {
+        String lineHead = "";
+        if (isLineHead) {
+            lineHead = "^";
+        }
+        String regex = lineHead + Pattern.quote(searchText);
+        Pattern p = Pattern.compile(regex, Pattern.MULTILINE);
+        Matcher m = p.matcher(spanText.toString());
+        while (m.find()) {
+            ForegroundColorSpan fgColor = new ForegroundColorSpan(color);
+            spanText.setSpan(fgColor, m.start(), m.end(), Spanned.SPAN_MARK_MARK);
         }
     }
 
@@ -306,6 +372,4 @@ public class CardInfoFragment extends Fragment {
             PSUtils.toast(getActivity(), "画像を表示できるアプリがありません");
         }
     }
-
-
 }

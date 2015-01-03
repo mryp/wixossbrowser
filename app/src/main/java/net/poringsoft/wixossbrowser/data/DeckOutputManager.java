@@ -139,13 +139,4 @@ public class DeckOutputManager {
         }
         return countTable;
     }
-
-    public Bitmap createCardListImage() {
-        if (m_cardList.size() == 0) {
-            return null;
-        }
-
-        //TODO: 画像リストデッキ出力は未実装
-        return null;
-    }
 }

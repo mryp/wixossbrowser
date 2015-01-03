@@ -4,4 +4,8 @@
     <color name="main_select_background">#33B5E5</color>
     <color name="main_text">#333333</color>
     <color name="main_select_text">#FFFFFF</color>
+
+    <color name="ability_text_regular">#FF0000</color>
+    <color name="ability_text_arrival">#0000FF</color>
+    <color name="ability_text_starting">#00AA00</color>
 </resources>

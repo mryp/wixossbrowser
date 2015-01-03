@@ -299,6 +299,11 @@ public class CardHtmlParser {
         return sb.toString().trim();
     }
 
+    /**
+     * HTML特殊文字を変換する
+     * @param text 文字列
+     * @return 変換後の文字列
+     */
     private static String replaceHtmlText(String text) {
         text = text.replaceAll("&times;", "×");
 
