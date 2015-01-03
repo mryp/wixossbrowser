@@ -24,6 +24,7 @@ import android.widget.ListView;
 import net.poringsoft.wixossbrowser.data.CardInfo;
 import net.poringsoft.wixossbrowser.data.DeckDirInfo;
 import net.poringsoft.wixossbrowser.data.EnvOption;
+import net.poringsoft.wixossbrowser.data.SqlAccessHelper;
 import net.poringsoft.wixossbrowser.data.SqlAccessManager;
 import net.poringsoft.wixossbrowser.data.SqlSelectHelper;
 import net.poringsoft.wixossbrowser.utils.PSDebug;
@@ -233,6 +234,15 @@ public class NavigationDrawerFragment extends Fragment {
         }
     };
 
+    private static final Map<String, String> DEF_MAP_ABILITY = new LinkedHashMap<String, String>(){
+        {
+            put("常時能力", "常時能力");
+            put("出現時能力", "出現時能力");
+            put("起動能力", "起動能力");
+            put("ライフバースト", "ライフバースト");
+        }
+    };
+
     private static final Map<String, String> DEF_MAP_NODATA = new LinkedHashMap<String, String>(){
         {
             //項目なし
@@ -311,17 +321,6 @@ public class NavigationDrawerFragment extends Fragment {
     private void resetListAdapter() {
         ReadNaviListAsyncTask naviTask = new ReadNaviListAsyncTask();
         naviTask.execute("");
-        /*
-        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectItem(position);
-            }
-        });
-        mDrawerListView.setAdapter(createNavigationAdapter());
-        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-        selectItem(mCurrentSelectedPosition);
-        */
     }
 
     public void resetNaviSelectPos(int pos) {
@@ -393,6 +392,9 @@ public class NavigationDrawerFragment extends Fragment {
 
         sectionList.add(new NaviSectionHeaderData("ガード"));
         rowList.add(setNaviGuardList(sqlManager));
+
+        sectionList.add(new NaviSectionHeaderData("能力"));
+        rowList.add(setNaviAbilityList(sqlManager));
 
         sectionList.add(new NaviSectionHeaderData("イラストレーター"));
         rowList.add(setNaviIllustList(sqlManager));
@@ -593,6 +595,17 @@ public class NavigationDrawerFragment extends Fragment {
         List<String> dataList = sqlManager.selectDistinctCardInfoGuard();
         Collections.sort(dataList); //名前順でソート
         return setNaviList(DEF_MAP_GUARD, dataList, SqlSelectHelper.SELECT_CARD_CMD_GUARD);
+    }
+
+    /**
+     * 能力別リストを取得する
+     * @param sqlManager 検索用DB
+     * @return ナビゲーションの行リスト
+     */
+    private List<NaviSectionRowData> setNaviAbilityList(SqlAccessManager sqlManager)
+    {
+        List<String> dataList = new ArrayList<String>();
+        return setNaviList(DEF_MAP_ABILITY, dataList, SqlSelectHelper.SELECT_CARD_CMD_ABILITY);
     }
 
     /**

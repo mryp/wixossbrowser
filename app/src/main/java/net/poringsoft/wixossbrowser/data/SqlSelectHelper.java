@@ -26,6 +26,7 @@ public class SqlSelectHelper {
     public static final String SELECT_CARD_CMD_LIMIT = "limit";         //リミット
     public static final String SELECT_CARD_CMD_POWER = "power";         //パワー
     public static final String SELECT_CARD_CMD_GUARD = "guard";         //ガード
+    public static final String SELECT_CARD_CMD_ABILITY = "ability";     //能力
 
     public static final String SELECT_DECK_DIR_CMD_ID = "deckid";       //デッキID
 
@@ -121,6 +122,11 @@ public class SqlSelectHelper {
         {
             //完全一致検索
             select = SqlDao.CARD_COLUMN_GUARD + "=" + DatabaseUtils.sqlEscapeString(value);
+        }
+        else if (key.equals(SELECT_CARD_CMD_ABILITY))
+        {
+            //部分一致
+            select = SqlDao.CARD_COLUMN_TEXT + " LIKE " + DatabaseUtils.sqlEscapeString("%"+value+"%");
         }
         else if (key.equals(SELECT_CARD_CMD_ILLUST))
         {
