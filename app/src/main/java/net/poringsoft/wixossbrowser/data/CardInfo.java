@@ -27,13 +27,17 @@ public class CardInfo {
     private int m_power;
     private String m_limitCondition;
     private String m_guard;
+    private int m_regular;   //常時能力  icon_txt_regular.png
+    private int m_arrival;   //出現能力 icon_txt_arrival.png
+    private int m_starting;  //起動能力 icon_txt_starting.png
+    private int m_lifeburst; //ライブバースト icon_txt_burst.png
 
     private List<String> m_textList;
     private List<CardFaqInfo> m_faqList;
 
     private long m_uptime;
     private int m_deckRegistCount;
-
+    
     //プロパティ
     //------------------------------------------------------
     /**
@@ -326,6 +330,70 @@ public class CardInfo {
      */
     public void setGuard(String guard) {
         this.m_guard = guard;
+    }
+
+    /**
+     * 常時能力個数を取得 
+     * @return 個数
+     */
+    public int getRegular() {
+        return m_regular;
+    }
+
+    /**
+     * 常時能力の個数を設定
+     * @param regular 個数
+     */
+    public void setRegular(int regular) {
+        this.m_regular = regular;
+    }
+
+    /**
+     * 出現能力の個数を取得
+     * @return 個数
+     */
+    public int getArrival() {
+        return m_arrival;
+    }
+
+    /**
+     * 出現能力の個数を設定 
+     * @param arrival 個数
+     */
+    public void setArrival(int arrival) {
+        this.m_arrival = arrival;
+    }
+
+    /**
+     * 起動能力の個数を取得 
+     * @return 個数
+     */
+    public int getStarting() {
+        return m_starting;
+    }
+
+    /**
+     * 起動能力の個数を設定 
+     * @param starting 個数
+     */
+    public void setStarting(int starting) {
+        this.m_starting = starting;
+    }
+
+    /**
+     * ライフバーストの個数を取得（0 or 1）
+     * @return 個数
+     */
+    public int getLifeburst() {
+        return m_lifeburst;
+    }
+
+    /**
+     * ライフバーストの個数を設定
+     * @param lifeburst 個数
+     */
+    public void setLifeburst(int lifeburst) {
+        this.m_lifeburst = lifeburst;
     }
 
     /**

@@ -125,8 +125,22 @@ public class SqlSelectHelper {
         }
         else if (key.equals(SELECT_CARD_CMD_ABILITY))
         {
-            //部分一致
-            select = SqlDao.CARD_COLUMN_TEXT + " LIKE " + DatabaseUtils.sqlEscapeString("%"+value+"%");
+            if (value.equals("常"))
+            {
+                select = SqlDao.CARD_COLUMN_REGULAR + ">0";
+            }
+            else if (value.equals("出"))
+            {
+                select = SqlDao.CARD_COLUMN_ARRIVAL + ">0";
+            }
+            else if (value.equals("起"))
+            {
+                select = SqlDao.CARD_COLUMN_STARTING + ">0";
+            }
+            else if (value.equals("ラ"))
+            {
+                select = SqlDao.CARD_COLUMN_LIFEBURST + ">0";
+            }
         }
         else if (key.equals(SELECT_CARD_CMD_ILLUST))
         {

@@ -236,10 +236,10 @@ public class NavigationDrawerFragment extends Fragment {
 
     private static final Map<String, String> DEF_MAP_ABILITY = new LinkedHashMap<String, String>(){
         {
-            put("常時能力", "常時能力");
-            put("出現時能力", "出現時能力");
-            put("起動能力", "起動能力");
-            put("ライフバースト", "ライフバースト");
+            put("常", "常時能力");
+            put("出", "出現時能力");
+            put("起", "起動能力");
+            put("ラ", "ライフバースト");
         }
     };
 

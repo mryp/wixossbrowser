@@ -47,6 +47,10 @@ public class SqlDao {
     public static final String CARD_COLUMN_POWER = "m_power";
     public static final String CARD_COLUMN_LIMIT_CONDITION = "m_limitcondition";
     public static final String CARD_COLUMN_GUARD = "m_guard";
+    public static final String CARD_COLUMN_REGULAR = "m_regular";
+    public static final String CARD_COLUMN_ARRIVAL = "m_arrival";
+    public static final String CARD_COLUMN_STARTING = "m_starting";
+    public static final String CARD_COLUMN_LIFEBURST = "m_lifeburst";
     public static final String CARD_COLUMN_TEXT = "m_text";
     public static final String CARD_COLUMN_QUESTION = "m_question";
     public static final String CARD_COLUMN_ANSWER = "m_answer";
@@ -70,6 +74,10 @@ public class SqlDao {
             CARD_COLUMN_POWER,
             CARD_COLUMN_LIMIT_CONDITION,
             CARD_COLUMN_GUARD,
+            CARD_COLUMN_REGULAR,
+            CARD_COLUMN_ARRIVAL,
+            CARD_COLUMN_STARTING,
+            CARD_COLUMN_LIFEBURST,
             CARD_COLUMN_TEXT,
             CARD_COLUMN_QUESTION,
             CARD_COLUMN_ANSWER,
@@ -334,6 +342,10 @@ public class SqlDao {
         values.put(CARD_COLUMN_POWER, info.getPower());
         values.put(CARD_COLUMN_LIMIT_CONDITION, info.getLimitCondition());
         values.put(CARD_COLUMN_GUARD, info.getGuard());
+        values.put(CARD_COLUMN_REGULAR, info.getRegular());
+        values.put(CARD_COLUMN_ARRIVAL, info.getArrival());
+        values.put(CARD_COLUMN_STARTING, info.getStarting());
+        values.put(CARD_COLUMN_LIFEBURST, info.getLifeburst());
         StringBuilder textBuff = new StringBuilder();
         for (String textItem : info.getTextList())
         {
@@ -387,10 +399,14 @@ public class SqlDao {
         cardInfo.setPower(cursor.getInt(15));
         cardInfo.setLimitCondition(cursor.getString(16));
         cardInfo.setGuard(cursor.getString(17));
-        cardInfo.setTextList(Arrays.asList(cursor.getString(18).split(SPLIT_CHAR)));
+        cardInfo.setRegular(cursor.getInt(18));
+        cardInfo.setArrival(cursor.getInt(19));
+        cardInfo.setStarting(cursor.getInt(20));
+        cardInfo.setLifeburst(cursor.getInt(21));
+        cardInfo.setTextList(Arrays.asList(cursor.getString(22).split(SPLIT_CHAR)));
 
-        String questionText = cursor.getString(19);
-        String answerText = cursor.getString(20);
+        String questionText = cursor.getString(23);
+        String answerText = cursor.getString(24);
         String[] question = questionText.split(SPLIT_CHAR);
         String[] answer = answerText.split(SPLIT_CHAR);
 
@@ -403,7 +419,7 @@ public class SqlDao {
             faqList.add(faqInfo);
         }
         cardInfo.setFaqList(faqList);
-        cardInfo.setUptime(cursor.getLong(21));
+        cardInfo.setUptime(cursor.getLong(25));
 
         return cardInfo;
     }

@@ -94,7 +94,7 @@ public class CardHtmlParser {
                 {
                     cardInfo.setImageUrl(EnvPath.getAbsoluteUrl(htmlUrl, image.select("img").attr("src")));
                     cardInfo.setIllust(getIllustName(image.text()));
-                    break;
+                    break;  //最初の項目のみセットする
                 }
 
                 //カードパラメーター
@@ -137,6 +137,10 @@ public class CardHtmlParser {
                             break;
                         default:
                             textList.add(getCardMessageText(table).trim());
+                            cardInfo.setRegular(cardInfo.getRegular() + getCountImageFile(table, "icon_txt_regular.png"));
+                            cardInfo.setArrival(cardInfo.getArrival() + getCountImageFile(table, "icon_txt_arrival.png"));
+                            cardInfo.setStarting(cardInfo.getStarting() + getCountImageFile(table, "icon_txt_starting.png"));
+                            cardInfo.setLifeburst(cardInfo.getLifeburst() + getCountImageFile(table, "icon_txt_burst.png"));
                             break;
                     }
                     rowNum++;
@@ -156,14 +160,14 @@ public class CardHtmlParser {
                 for (Element question : questionList)
                 {
                     faqInfo.setQuestion(question.text().trim());
-                    break;
+                    break;  //最初の項目のみセットする
                 }
 
                 Elements answerList = e.select("span.card_ruleFAQ_a");
                 for (Element answer : answerList)
                 {
                     faqInfo.setAnswer(answer.text().trim());
-                    break;
+                    break;  //最初の項目のみセットする
                 }
 
                 faqList.add(faqInfo);
@@ -219,6 +223,10 @@ public class CardHtmlParser {
         PSDebug.d("cardInfo.getPower=" + cardInfo.getPower());
         PSDebug.d("cardInfo.getLimitCondition=" + cardInfo.getLimitCondition());
         PSDebug.d("cardInfo.getGuard=" + cardInfo.getGuard());
+        PSDebug.d("cardInfo.getRegular=" + cardInfo.getRegular());
+        PSDebug.d("cardInfo.getArrival=" + cardInfo.getArrival());
+        PSDebug.d("cardInfo.getStarting=" + cardInfo.getStarting());
+        PSDebug.d("cardInfo.getLifeburst=" + cardInfo.getLifeburst());
 
         for (int i=0; i<cardInfo.getTextList().size(); i++)
         {
@@ -297,6 +305,27 @@ public class CardHtmlParser {
             }
         }
         return sb.toString().trim();
+    }
+
+    
+
+    private static int getCountImageFile(Element skill, String imageFileName)
+    {
+        PSDebug.d("call e=" + skill.toString());
+        int count = 0;
+        for (Node node : skill.childNodes())
+        {
+            //nodeName()はタグ=タグ名、テキスト=#text
+            if (node.nodeName().equals("img"))
+            {
+                if (node.attr("src").contains(imageFileName))
+                {
+                    count++;
+                }
+            }
+        }
+
+        return count;
     }
 
     /**
