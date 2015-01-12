@@ -273,6 +273,8 @@ public class CardListFragment extends ListFragment {
      * カード詳細一覧画面からカード情報をダウンロードする
      */
     public class ReadCardListAsyncTask extends AsyncTask<String, String, ArrayList<CardInfo>> {
+        private String m_taskSearchText = "";
+        
         /**
          * 更新前処理
          */
@@ -293,6 +295,7 @@ public class CardListFragment extends ListFragment {
         @Override
         protected ArrayList<CardInfo> doInBackground(String... text) {
             String searchText = text[0];
+            m_taskSearchText = searchText;
             PSDebug.d("searchText=" + searchText);
             ArrayList<CardInfo> cardInfoList = new ArrayList<CardInfo>();
             try
@@ -321,13 +324,16 @@ public class CardListFragment extends ListFragment {
         protected void onPostExecute(ArrayList<CardInfo> result) {
             if (result == null)
             {
-                String messageText = "検索処理にしっぱしました";
+                String messageText = "検索処理に失敗しました";
                 setEmptyText(messageText);
             }
-            if (result.size() == 0)
+            else if (result.size() == 0)
             {
                 String messageText = "データが見つかりません";
-                if (m_sqlManager.selectCardInfoFirstItem() == null) {
+                if (m_taskSearchText.startsWith(SqlSelectHelper.SELECT_CARD_CMD_ABILITY)) {
+                    messageText = "新バージョン用のカードデータがありません\nメニュー→「データ取得」を選択してください";
+                }
+                else if (m_sqlManager.selectCardInfoFirstItem() == null) {
                     messageText = "カードデータがありません\nメニュー→「データ取得」を選択してください";
                 }
                 setEmptyText(messageText);

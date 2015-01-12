@@ -12,7 +12,7 @@ public class SqlAccessHelper extends SQLiteOpenHelper {
     //定数
     //-------------------------------------------------------
     public static final String DATABASE_NAME = "card.db";	//データベース名
-    public static final int DATABASE_VERSION = 2;			//テーブルバージョン（更新時は数値を1つあげる）
+    public static final int DATABASE_VERSION = 3;			//テーブルバージョン（更新時は数値を1つあげる）
 
     //テーブル定義
     //-------------------------------------------------------
@@ -39,14 +39,14 @@ public class SqlAccessHelper extends SQLiteOpenHelper {
             + "m_power integer,"
             + "m_limitcondition text,"
             + "m_guard text,"
-            + "m_regular integer,"
-            + "m_arrival integer,"
-            + "m_starting integer,"
-            + "m_lifeburst integer,"
             + "m_text text,"
             + "m_question text,"
             + "m_answer text,"
-            + "m_uptime integer"
+            + "m_uptime integer,"
+            + "m_regular integer,"
+            + "m_arrival integer,"
+            + "m_starting integer,"
+            + "m_lifeburst integer"
             + ")";
 
     /**
@@ -123,6 +123,18 @@ public class SqlAccessHelper extends SQLiteOpenHelper {
     }
 
     /**
+     * v3で追加したカラムをテーブルに追加する 
+     * @param db DB
+     */
+    private void updateTableVer3(SQLiteDatabase db)
+    {
+        db.execSQL("alter table card_data add m_regular integer");
+        db.execSQL("alter table card_data add m_arrival integer");
+        db.execSQL("alter table card_data add m_starting integer");
+        db.execSQL("alter table card_data add m_lifeburst integer");
+    }
+
+    /**
      * DBテーブル更新メソッド
      */
     @Override
@@ -135,12 +147,10 @@ public class SqlAccessHelper extends SQLiteOpenHelper {
             {
                 createTableVer2(db);
             }
-            /*
             else if (oldVersion == 2)
             {
-                //まだない
+                updateTableVer3(db);
             }
-            */
             db.setTransactionSuccessful();
         }
         finally
