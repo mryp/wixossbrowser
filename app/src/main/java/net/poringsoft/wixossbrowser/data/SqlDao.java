@@ -517,10 +517,6 @@ public class SqlDao {
         String select = SqlSelectHelper.createSelectCard(searchText, isTextAndFaq);
         String order = SqlSelectHelper.createOrderCard(sortType);
 
-        if (select == null || select.equals(""))
-        {
-            return new ArrayList<CardInfo>();   //空を返す
-        }
         return selectCardInfo(select, order, null);
     }
 

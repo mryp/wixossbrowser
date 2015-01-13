@@ -61,7 +61,12 @@ public class SqlSelectHelper {
         if (key.equals(SELECT_CARD_CMD_PRODUCT_CODE))
         {
             //前方一致検索
-            select = SqlDao.CARD_COLUMN_PRODUCT_CODE + " LIKE " + DatabaseUtils.sqlEscapeString(value+"%");
+            if (value.equals("ALL")) {
+                select = "";    //すべて表示するため検索条件なし
+            }
+            else {
+                select = SqlDao.CARD_COLUMN_PRODUCT_CODE + " LIKE " + DatabaseUtils.sqlEscapeString(value + "%");
+            }
         }
         else if (key.equals(SELECT_CARD_CMD_MODEL_NUMBER))
         {

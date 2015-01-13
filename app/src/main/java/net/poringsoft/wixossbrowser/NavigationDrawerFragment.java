@@ -52,6 +52,7 @@ public class NavigationDrawerFragment extends Fragment {
      */
     private static final Map<String, String> DEF_MAP_PRODUCT = new LinkedHashMap<String, String>(){
         {
+            put("ALL", "すべてのカード");
             put("WX01", "WX01 サーブドセレクター");
             put("WX02", "WX02 ステアード セレクター");
             put("WX03", "WX03 スプレッドセレクター");
