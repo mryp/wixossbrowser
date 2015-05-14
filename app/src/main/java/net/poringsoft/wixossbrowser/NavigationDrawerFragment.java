@@ -57,6 +57,8 @@ public class NavigationDrawerFragment extends Fragment {
             put("WX03", "WX03 スプレッドセレクター");
             put("WX04", "WX04 インフェクテッドセレクター");
             put("WX05", "WX05 ビギニングセレクター");
+            put("WX06", "WX06 フォーチュンセレクター");
+            put("WX07", "WX07 ネクストセレクター");
             put("WD01", "WD01 ホワイトホープ");
             put("WD02", "WD02 レッドアンビション");
             put("WD03", "WD03 ブルーアプリ");
@@ -64,11 +66,17 @@ public class NavigationDrawerFragment extends Fragment {
             put("WD05", "WD05 ブラックデザイア");
             put("WD06", "WD06 ブルーリクエスト");
             put("WD07", "WD07 ブラッククレイヴ");
+            put("WD08", "WD08 ブラックウィル");
+            put("WD09", "WD09 ホワイトプレイ");
+            put("WD10", "WD10 レッドホープ");
             put("PR", "PR プロモカード");
             put("SP01", "SP01 アニメBOX1");
             put("SP02", "SP02 アニメBOX2");
             put("SP03", "SP03 アニメBOX3");
             put("SP05", "SP04 カードガム");
+            put("SP06", "SP06 アニメ2期BOX1");
+            put("SP07", "SP07 アニメ2期BOX2");
+            put("SP08", "SP08 アニメ2期BOX3");
         }
     };
 
@@ -117,6 +125,7 @@ public class NavigationDrawerFragment extends Fragment {
             put("アン", "アン");
             put("リメンバ", "リメンバ");
             put("リメンバ/ピルルク", "リメンバ/ピルルク");
+            put("サシェ", "サシェ");
             put("精武：アーム", "精武：アーム");
             put("精武：ウェポン", "精武：ウェポン");
             put("精武：アーム/ウェポン", "精武：アーム/ウェポン");
