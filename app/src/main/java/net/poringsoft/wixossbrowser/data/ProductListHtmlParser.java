@@ -40,7 +40,7 @@ public class ProductListHtmlParser {
             return null;
         }
 
-        Elements boxElements = doc.select("div.column2_box_main_contents h5 a");
+        Elements boxElements = doc.select("li h5 a");
         for (Element e : boxElements)
         {
             ProductInfo info = new ProductInfo();
