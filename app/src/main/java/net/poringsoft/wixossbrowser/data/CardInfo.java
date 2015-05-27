@@ -80,10 +80,10 @@ public class CardInfo {
      * カード名をセットする
      */
     public void setName(String name) {
-        int delPos = name.indexOf("＞");
+        int delPos = name.indexOf("＜");
         if (delPos != -1)
         {
-            name = name.substring(delPos+1, name.length());
+            name = name.substring(0, delPos);
         }
 
         this.m_name = name;

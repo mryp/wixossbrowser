@@ -279,6 +279,7 @@ public class DataUpdateFragment extends ListFragment {
          */
         @Override
         protected void onPreExecute() {
+            m_quiting = false;
             m_sqlManager = new SqlAccessManager(getActivity());
             ProgressDialog prog = initProgressDlg(new ProgressDialog(getActivity()), 1);
             prog.setTitle("データ更新");
