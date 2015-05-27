@@ -14,7 +14,7 @@ public class EnvOption {
     //定数
     //---------------------------------------------------------
     //通信関連
-    public static final String NET_GET_AGENT = "Mozilla/5.0 (Linux; Android; ja-jp;)";
+    public static final String NET_GET_AGENT = "Mozilla/5.0 (Linux; ja-jp;)";
     public static final int NET_GET_TIMEOUT = 10000;
 
     //カードリスト関連
