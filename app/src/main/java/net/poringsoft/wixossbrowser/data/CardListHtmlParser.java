@@ -43,8 +43,9 @@ public class CardListHtmlParser {
         //ページごとの処理
         for (String pageUrl : pageUrlList)
         {
+            PSDebug.d("pageUrl=" + pageUrl);
             Document pageDoc;
-            if (pageUrl.contains("page=1"))
+            if (pageUrl.endsWith("page=1"))
             {
                 pageDoc = doc;  //現在のを再利用する
             }
@@ -84,6 +85,10 @@ public class CardListHtmlParser {
             urlList.add(EnvPath.getAbsoluteUrl(baseUrl, e.attr("href")));
         }
 
+        for (String url : urlList)
+        {
+            PSDebug.d("cardUrl=" + url);
+        }
         return urlList;
     }
 

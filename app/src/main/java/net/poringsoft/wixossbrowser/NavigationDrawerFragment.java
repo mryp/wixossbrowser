@@ -59,6 +59,8 @@ public class NavigationDrawerFragment extends Fragment {
             put("WX05", "WX05 ビギニングセレクター");
             put("WX06", "WX06 フォーチュンセレクター");
             put("WX07", "WX07 ネクストセレクター");
+            put("WX08", "WX08 インキュベイトセレクター");
+            put("WX09", "WX09 リアクテッドセレクター");
             put("WD01", "WD01 ホワイトホープ");
             put("WD02", "WD02 レッドアンビション");
             put("WD03", "WD03 ブルーアプリ");
@@ -69,6 +71,7 @@ public class NavigationDrawerFragment extends Fragment {
             put("WD08", "WD08 ブラックウィル");
             put("WD09", "WD09 ホワイトプレイ");
             put("WD10", "WD10 レッドホープ");
+            put("WD10", "WD11 ブラックニード");
             put("PR", "PR プロモカード");
             put("SP01", "SP01 アニメBOX1");
             put("SP02", "SP02 アニメBOX2");
@@ -76,7 +79,8 @@ public class NavigationDrawerFragment extends Fragment {
             put("SP05", "SP04 カードガム");
             put("SP06", "SP06 アニメ2期BOX1");
             put("SP07", "SP07 アニメ2期BOX2");
-            put("SP08", "SP08 アニメ2期BOX3");
+            put("SP09", "SP09 アニメ2期BOX3");
+            put("SP10", "SP10 セレクターズパック Vol.エルドラ&遊月");
         }
     };
 
