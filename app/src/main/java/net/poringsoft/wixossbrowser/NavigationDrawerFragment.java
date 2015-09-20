@@ -71,7 +71,7 @@ public class NavigationDrawerFragment extends Fragment {
             put("WD08", "WD08 ブラックウィル");
             put("WD09", "WD09 ホワイトプレイ");
             put("WD10", "WD10 レッドホープ");
-            put("WD10", "WD11 ブラックニード");
+            put("WD11", "WD11 ブラックニード");
             put("PR", "PR プロモカード");
             put("SP01", "SP01 アニメBOX1");
             put("SP02", "SP02 アニメBOX2");
@@ -107,6 +107,8 @@ public class NavigationDrawerFragment extends Fragment {
             put("アーツ", "アーツ");
             put("シグニ", "シグニ");
             put("スペル", "スペル");
+            put("レゾナ", "レゾナ");
+            put("-", "種類なし");
         }
     };
 
@@ -130,6 +132,9 @@ public class NavigationDrawerFragment extends Fragment {
             put("リメンバ", "リメンバ");
             put("リメンバ/ピルルク", "リメンバ/ピルルク");
             put("サシェ", "サシェ");
+            put("ミュウ", "ミュウ");
+            put("タウィル", "タウィル");
+            put("タウィル/ウムル", "タウィル/ウムル");
             put("精武：アーム", "精武：アーム");
             put("精武：ウェポン", "精武：ウェポン");
             put("精武：アーム/ウェポン", "精武：アーム/ウェポン");
@@ -144,10 +149,13 @@ public class NavigationDrawerFragment extends Fragment {
             put("精羅：鉱石", "精羅：鉱石");
             put("精羅：植物", "精羅：植物");
             put("精羅：原子", "精羅：原子");
+            put("精羅：宇宙", "精羅：宇宙");
             put("精生：地獣", "精生：地獣");
             put("精生：水獣", "精生：水獣");
             put("精生：空獣", "精生：空獣");
             put("精生：龍獣", "精生：龍獣");
+            put("精生：凶蟲", "精生：凶蟲");
+            put("精生：空獣/地獣", "精生：空獣/地獣");
             put("精元", "精元");
             put("-", "タイプ無");
         }
@@ -173,14 +181,24 @@ public class NavigationDrawerFragment extends Fragment {
             put("ウリス", "ウリス");
             put("エルドラ限定", "エルドラ限定");
             put("エルドラ", "エルドラ");
-            put("ウムル限定", "ウムル限定");
             put("イオナ限定", "イオナ限定");
+            put("イオナ", "イオナ");
             put("タマ/イオナ限定", "タマ/イオナ限定");
             put("タマ/イオナ", "タマ/イオナ");
             put("ミルルン限定", "ミルルン限定");
             put("ミルルン", "ミルルン");
             put("アン限定", "アン限定");
             put("アン", "アン");
+            put("ウムル限定", "ウムル限定");
+            put("ウムル", "ウムル");
+            put("タウィル限定", "タウィル限定");
+            put("タウィル", "タウィル");
+            put("タウィル/ウムル限定", "タウィル/ウムル限定");
+            put("タウィル/ウムル", "タウィル/ウムル");
+            put("サシェ限定", "サシェ限定");
+            put("サシェ", "サシェ");
+            put("ミュウ限定", "ミュウ限定");
+            put("ミュウ", "ミュウ");
             put("-", "限定条件無");
         }
     };
@@ -213,6 +231,7 @@ public class NavigationDrawerFragment extends Fragment {
             put("ST", "ST");
             put("PR", "PR");
             put("SP", "SP");
+            put("Re", "Re");
         }
     };
 

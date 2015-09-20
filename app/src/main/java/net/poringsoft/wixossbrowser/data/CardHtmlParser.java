@@ -118,10 +118,10 @@ public class CardHtmlParser {
                             cardInfo.setLevel(getIntText(table));
                             break;
                         case 4:
-                            cardInfo.setGrowCost(table.text());
+                            cardInfo.setGrowCost(getCostName(table));
                             break;
                         case 5:
-                            cardInfo.setCost(table.text());
+                            cardInfo.setCost(getCostName(table));
                             break;
                         case 6:
                             cardInfo.setLimit(getIntText(table));
@@ -307,8 +307,12 @@ public class CardHtmlParser {
         return sb.toString().trim();
     }
 
-    
-
+    /**
+     * ファイル個数を取得する
+     * @param skill スキル
+     * @param imageFileName ファイル名
+     * @return 個数
+     */
     private static int getCountImageFile(Element skill, String imageFileName)
     {
         PSDebug.d("call e=" + skill.toString());
@@ -352,5 +356,17 @@ public class CardHtmlParser {
             return -1;
         }
         return PSUtils.tryParseInt(text, -1);
+    }
+
+    /**
+     * コスト表示用の文字列に変換する
+     * @param element タグ
+     * @return コスト表示用文字列
+     */
+    private static String getCostName(Element element) {
+        String text = element.text();
+        text = text.replaceAll("《", "");
+        text = text.replaceAll("》", "");
+        return text;
     }
 }
